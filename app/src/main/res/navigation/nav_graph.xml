@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/addTasks"
-        android:name="com.todo.AddTasks"
+        android:name="com.todo.fragments.AddTasks"
         android:label="fragment_add_tasks"
         tools:layout="@layout/fragment_add_tasks" />
     <fragment
         android:id="@+id/currentToDoS"
-        android:name="com.todo.CurrentToDoS"
+        android:name="com.todo.fragments.CurrentToDoS"
         android:label="fragment_current_to_do_s"
         tools:layout="@layout/fragment_current_to_do_s" >
         <action

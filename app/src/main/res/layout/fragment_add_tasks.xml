@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/cardview_dark_background"
     android:orientation="vertical"
-    tools:context=".AddTasks">
+    tools:context=".fragments.AddTasks">
 
     <TextView
         android:id="@+id/titleTV"
@@ -47,6 +47,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:cursorVisible="false"
         android:text="Add description"
         android:textColor="?android:attr/colorPressedHighlight"
         android:textSize="16sp"
