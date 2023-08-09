@@ -5,15 +5,39 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.todo.R
+import com.todo.databinding.FragmentAddTasksBinding
+import com.todo.model.ToDo
+import com.todo.utils.Picker
+import com.todo.utils.fullDate
+import com.todo.utils.hour
+import com.todo.utils.minute
 
 class AddTasks : Fragment() {
+    private lateinit var binding: FragmentAddTasksBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_add_tasks, container, false)
+    ): View {
+        binding = FragmentAddTasksBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.saveBTN.setOnClickListener {
+            val newToDo = ToDo(
+                binding.outlinedTitleField.editText?.text.toString(),
+                binding.outlinedDescriptionField.editText?.text.toString(),
+                "$hour:$minute",
+                fullDate,
+                false
+            )
+        }
+
+        binding.outlinedDateField.setOnClickListener {
+            Picker(parentFragmentManager)
+        }
+    }
 }
