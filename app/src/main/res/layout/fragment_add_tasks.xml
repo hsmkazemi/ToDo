@@ -101,9 +101,12 @@
         app:hintTextColor="?android:attr/colorPressedHighlight">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dateChoose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="true"
             android:cursorVisible="false"
+            android:focusable="false"
             android:hint="Deadline"
             android:textColor="@color/material_dynamic_neutral90"
             android:textColorHint="@color/material_dynamic_neutral60" />

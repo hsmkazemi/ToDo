@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import com.todo.R
 import com.todo.databinding.FragmentAddTasksBinding
 import com.todo.model.ToDo
 import com.todo.utils.Picker
@@ -34,10 +36,12 @@ class AddTasks : Fragment() {
                 fullDate,
                 false
             )
+            Navigation.findNavController(binding.saveBTN).navigate(R.id.action_addTasks_to_currentToDoS)
+            todoList.add(newToDo)
         }
 
-        binding.outlinedDateField.setOnClickListener {
-            Picker(parentFragmentManager)
+        binding.dateChoose.setOnClickListener {
+            Picker(parentFragmentManager, binding.dateChoose)
         }
     }
 }

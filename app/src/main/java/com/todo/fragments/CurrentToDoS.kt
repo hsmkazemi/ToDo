@@ -7,9 +7,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.todo.R
+import com.todo.adapter.ToDoAdapter
 import com.todo.databinding.FragmentAddTasksBinding
 import com.todo.databinding.FragmentCurrentToDoSBinding
+import com.todo.model.ToDo
+
+val todoList = mutableListOf<ToDo>()
 
 class CurrentToDoS : Fragment() {
     private lateinit var binding: FragmentCurrentToDoSBinding
@@ -27,7 +32,18 @@ class CurrentToDoS : Fragment() {
         addTaskBTN.setOnClickListener {
             Navigation.findNavController(addTaskBTN).navigate(R.id.action_currentToDoS_to_addTasks)
         }
+        initRecView()
+    }
 
+    override fun onResume() {
+        super.onResume()
+        initRecView()
+    }
+
+    private fun initRecView() {
+        val adapter = ToDoAdapter(todoList, requireContext())
+        binding.recView.adapter = adapter
+        binding.recView.layoutManager = LinearLayoutManager(requireContext())
     }
 }
 
